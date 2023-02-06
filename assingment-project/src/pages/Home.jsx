@@ -6,8 +6,13 @@ import Second from "../components/Second";
 import Social from "../components/Social";
 
 const Home = () => {
-  const backgroundImage =
-    "https://png.pngtree.com/background/20210711/original/pngtree-fresh-hand-painted-blue-banner-on-fresh-fruits-and-vegetables-picture-image_1095971.jpg";
+ 
+  useEffect(()=>{
+   localStorage.setItem("backgroundImage","https://res.cloudinary.com/dknaigwrs/image/upload/v1675669380/pngtree-fresh-hand-painted-blue-banner-on-fresh-fruits-and-vegetables-picture-image_1095971_gj8hwb.png")
+  },[])
+
+  const backgroundImage = localStorage.getItem("backgroundImage") || ""
+    
 
    useEffect(()=>{
    localStorage.setItem("admin",JSON.stringify([{email:"admin@email.com", password:"1234"}])) 

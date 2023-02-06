@@ -6,7 +6,7 @@ export default function Admin (){
     return (
         <>
          <Text>
-            abc
+            
          </Text>
         
         </>

@@ -1,5 +1,5 @@
 import { Box, Button, HStack, Input, Link, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Tooltip, useDisclosure, useToast, VStack } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BsFacebook } from "react-icons/bs";
 import { BsLinkedin } from "react-icons/bs";
 import { AiFillInstagram } from "react-icons/ai";
@@ -9,9 +9,9 @@ import {PhoneIcon} from "@chakra-ui/icons"
 const Social = () => {
     const toast = useToast()
     const newContact = JSON.parse(localStorage.getItem("contacts")) || []
-    const facebook = "https://www.facebook.com/"
-    const linkedin = "https://www.linkedin.com/"
-    const instagram = "https://www.instagram.com/"
+    const facebook = localStorage.getItem("facebook") || ""
+    const linkedin = localStorage.getItem("linkedin") || ""
+    const instagram = localStorage.getItem("instagram") || ""
     const [init, setInit] = useState({name:"", email:"", number:""})
     const { isOpen, onOpen, onClose } = useDisclosure()
 
@@ -49,6 +49,12 @@ const Social = () => {
       })
      
    }
+
+   useEffect(()=>{
+    localStorage.setItem("facebook", "https://www.facebook.com/")
+    localStorage.setItem("linkedin", "https://www.linkedin.com/")
+    localStorage.setItem("instagram", "https://www.instagram.com/")
+   },[])
 
   return (
     <>    <VStack gap={"10px"}   maxW={"40px"} minW="40px" position={"absolute"} right="1px" top="80px">
