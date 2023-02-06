@@ -7,8 +7,18 @@ import Social from "../components/Social";
 
 const Home = () => {
  
+  function check(key)
+  {
+    var x = localStorage.getItem(key) 
+    if(x == null) 
+    {
+     return true
+    }
+    else return false
+  }
+
   useEffect(()=>{
-   localStorage.setItem("backgroundImage","https://res.cloudinary.com/dknaigwrs/image/upload/v1675669380/pngtree-fresh-hand-painted-blue-banner-on-fresh-fruits-and-vegetables-picture-image_1095971_gj8hwb.png")
+  check("backgroundImage") && localStorage.setItem("backgroundImage","https://res.cloudinary.com/dknaigwrs/image/upload/v1675669380/pngtree-fresh-hand-painted-blue-banner-on-fresh-fruits-and-vegetables-picture-image_1095971_gj8hwb.png")
   },[])
 
   const backgroundImage = localStorage.getItem("backgroundImage") || ""

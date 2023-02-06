@@ -49,11 +49,20 @@ const Social = () => {
       })
      
    }
+   function check(key)
+   {
+     var x = localStorage.getItem(key) 
+     if(x == null) 
+     {
+      return true
+     }
+     else return false
+   }
 
    useEffect(()=>{
-    localStorage.setItem("facebook", "https://www.facebook.com/")
-    localStorage.setItem("linkedin", "https://www.linkedin.com/")
-    localStorage.setItem("instagram", "https://www.instagram.com/")
+    check("facebook") && localStorage.setItem("facebook", "https://www.facebook.com/")
+    check("linkedin") && localStorage.setItem("linkedin", "https://www.linkedin.com/")
+    check("instagram") && localStorage.setItem("instagram", "https://www.instagram.com/")
    },[])
 
   return (

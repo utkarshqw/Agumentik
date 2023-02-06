@@ -10,13 +10,23 @@ const Second = () => {
     const option4 = localStorage.getItem("option4") || ""
     const option5 = localStorage.getItem("option5") || ""
 
+    function check(key)
+  {
+    var x = localStorage.getItem(key) 
+    if(x == null) 
+    {
+     return true
+    }
+    else return false
+  }
+
     useEffect(()=>{
-     localStorage.setItem("firstline", "Ingredients" )
-     localStorage.setItem("option1", "Organic Apple Juice" )
-     localStorage.setItem("option2", "Organic Aronia Juice" )
-     localStorage.setItem("option3", "Organic Orange Juice" )
-     localStorage.setItem("option4", "Organic Pomegranate Juice" )
-     localStorage.setItem("option5", "Organic Mango Juice" )
+     check("firstline") && localStorage.setItem("firstline", "Ingredients" )
+     check("option1") && localStorage.setItem("option1", "Organic Apple Juice" )
+     check("option2") && localStorage.setItem("option2", "Organic Aronia Juice" )
+     check("option3") && localStorage.setItem("option3", "Organic Orange Juice" )
+     check("option4") && localStorage.setItem("option4", "Organic Pomegranate Juice" )
+     check("option5") && localStorage.setItem("option5", "Organic Mango Juice" )
     },[])
 
   return (

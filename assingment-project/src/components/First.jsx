@@ -6,11 +6,22 @@ const First = () => {
     let  secondline_first = localStorage.getItem("secondline_first") || ""
     let secondline_remaining = localStorage.getItem("secondline_remaining") || ""
     let info = localStorage.getItem("info") || ""
+
+    function check(key)
+  {
+    var x = localStorage.getItem(key) 
+    if(x == null) 
+    {
+     return true
+    }
+    else return false
+  }
+
     useEffect(()=>{
-    localStorage.setItem("firstline_first","natural antioxidants")
-    localStorage.setItem("secondline_first", "apple")
-    localStorage.setItem("secondline_remaining","and aronia juice")
-    localStorage.setItem("info", "The delicious blend contains a nutrient punch of soluable fibre and the natural antioxidants that Aronia Berry provides.")
+    check("firstline_first") && localStorage.setItem("firstline_first","natural antioxidants")
+    check("secondline_first") && localStorage.setItem("secondline_first", "apple")
+    check("secondline_remaining") && localStorage.setItem("secondline_remaining","and aronia juice")
+    check("info") && localStorage.setItem("info", "The delicious blend contains a nutrient punch of soluable fibre and the natural antioxidants that Aronia Berry provides.")
     
   },[])
 

@@ -33,12 +33,22 @@ const Navbar = () => {
   const navtext2 = localStorage.getItem("navtext2") || "" ;
   const selecttext = localStorage.getItem("selecttext") || "" ;
 
+  function check(key)
+  {
+    var x = localStorage.getItem(key) 
+    if(x == null) 
+    {
+     return true
+    }
+    else return false
+  }
+
   useEffect(()=>{
    
-    localStorage.setItem("logo", "https://res.cloudinary.com/dknaigwrs/image/upload/v1675668698/nature-logo-removebg-preview_2_ikaa2w.png" )
-    localStorage.setItem("navtext1", "What's an Aronia Berry?")
-    localStorage.setItem("navtext2", "The Science")
-    localStorage.setItem("selecttext","The Juice")
+   check("logo") && localStorage.setItem("logo", "https://res.cloudinary.com/dknaigwrs/image/upload/v1675668698/nature-logo-removebg-preview_2_ikaa2w.png" )
+   check("navtext1") && localStorage.setItem("navtext1", "What's an Aronia Berry?")
+   check("navtext2") && localStorage.setItem("navtext2", "The Science")
+   check("selecttext") && localStorage.setItem("selecttext","The Juice")
 
   },[])
 
