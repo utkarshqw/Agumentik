@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/react";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import First from "../components/First";
 import Navbar from "../components/Navbar";
 import Second from "../components/Second";
@@ -16,9 +16,10 @@ const Home = () => {
     }
     else return false
   }
-
+    var [bgi, setBgi] = useState("")
   useEffect(()=>{
   check("backgroundImage") && localStorage.setItem("backgroundImage","https://res.cloudinary.com/dknaigwrs/image/upload/v1675669380/pngtree-fresh-hand-painted-blue-banner-on-fresh-fruits-and-vegetables-picture-image_1095971_gj8hwb.png")
+  setBgi(localStorage.getItem("backgroundImage"))
   },[])
 
   const backgroundImage = localStorage.getItem("backgroundImage") || ""
@@ -35,7 +36,7 @@ const Home = () => {
       borderRadius="3px"
       m="auto"
       pos={"relative"}
-      bgImage={`Url(${backgroundImage})`}
+      bgImage={`Url(${bgi})`}
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
       backgroundSize={"cover"}
